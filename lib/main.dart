@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:myfront/presentation/blocs/admin/user_bloc.dart';
 import 'package:myfront/presentation/pages/home.dart';
-import 'package:myfront/presentation/blocs/user/user_bloc.dart';
 import 'package:myfront/data/repositories/user_repository.dart';
 
 void main() {

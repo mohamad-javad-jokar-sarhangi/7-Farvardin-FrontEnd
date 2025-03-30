@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:myfront/core/data_color.dart';
 import 'package:myfront/core/vtext.dart';
 import 'package:myfront/presentation/pages/add_user_page.dart';
-import 'package:myfront/presentation/pages/car.dart';
-import 'package:myfront/presentation/pages/profile.dart';
-import 'package:myfront/presentation/pages/shop.dart';
+import 'package:myfront/presentation/pages/admin_pages/car.dart';
+import 'package:myfront/presentation/pages/admin_pages/profile.dart';
+import 'package:myfront/presentation/pages/admin_pages/shop.dart';
+
 
 class Home extends StatefulWidget {
   const Home({super.key});
