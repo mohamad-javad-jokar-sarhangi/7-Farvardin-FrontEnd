@@ -15,6 +15,9 @@ analyzer:
     prefer_const_literals_to_create_immutables: ignore
     unused_import: ignore
     must_be_immutable: ignore
+    unnecessary_brace_in_string_interps: ignore
+    sort_child_properties_last: ignore
+    unused_local_variable: ignore
 include: package:flutter_lints/flutter.yaml
 
 linter:

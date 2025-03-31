@@ -1,52 +1,17 @@
 import 'dart:ui';
-
 class DataColor {
-  /// فرم نوشتن به صورت 
-  /// static const Color colorName = Color(0xFF);
-  static const Color textColor = Color(0xFFF2C897);
-  static const Color iconColor = Color(0xFFF2C897);
+  // رنگ های اصلی
+  static const Color iconColor = Color(0xFF211951); // rgb(33, 25, 81) - رنگ متن اصلی
+  static const Color backgroundColor = Color(0xFF836FFF); // rgb(131, 111, 255) - بنفش ملایم برای سایدبار
+  static const Color accentColor = Color(0xFF15F5BA); // rgb(21, 245, 186) - رنگ اکسنت
+  static const Color textColor = Color(0xFFFFFFFF); // rgb(255, 255, 255) - رنگ سفید
 
-  //  ترکیب یک
-  // کرم کاه گلی
-  static const Color  c1 = Color(0xFFA9261B);
-  // عنابی
-  static const Color c2 = Color(0xFFF2C897);
-
-  //  ترکیب دو
-  // آبی لاجوردی
-  static const Color c3 = Color(0xFF1C39BB);
-  // زرد ایرانی   
-  static const Color c4 = Color(0xFFF0AF36);
-
-  //  ترکیب سه
-  // قرمر ایرانی 
-  static const Color c5 = Color(0xFFC81D11);
-  // آبی لاجوردی
-  static const Color c6 = Color(0xFF1C39BB);
-
-  //  ترکیب چهار
-  // رز صورتی ایرانی
-  static const Color c7 = Color(0xFFD7456E);
-  // کرم کاه گلی
-  static const Color c8 = Color(0xFFF2C897);
+  // رنگ های شفاف
+  static const Color sidebarLinkBackgroundColor = Color(0x1AFFFFFF); // rgba(255, 255, 255, 0.1) - پس زمینه لینک های سایدبار
+  static const Color tableRowEvenColor = Color(0x33836FFF); // rgba(131, 111, 255, 0.2) - پس زمینه ردیف های زوج جدول
+  static const Color tableRowHoverColor = Color(0x66836FFF); // rgba(131, 111, 255, 0.4) - پس زمینه هنگام هاور روی ردیف های جدول
+  static const Color accentShadowColor = Color(0x8015F5BA); // rgba(21, 245, 186, 0.5) - سایه اکسنت
 
 
-  //  ترکیب پنج
-  // زرد ایرانی   
-  static const Color c9 = Color(0xFFF0AF36);
-  // آبی نیلی
-  static const Color c10 = Color(0xFF32127A);
-
-
-  // ترکیب شش
-  // سبز ایرانی
-  static const Color c11 = Color(0xFF00A693);
-  // کرم کاه گلی
-  static const Color c12 = Color(0xFFF2C897);
-
-  // ترکیب هفت
-  // آبی روشن
-  static const Color c13 = Color(0xFF0578BE);
-  // کرم کاه گلی
-  static const Color c14 = Color(0xFFF2C897);
 }
+

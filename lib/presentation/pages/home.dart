@@ -6,6 +6,7 @@ import 'package:myfront/presentation/pages/add_user_page.dart';
 import 'package:myfront/presentation/pages/admin_pages/car.dart';
 import 'package:myfront/presentation/pages/admin_pages/profile.dart';
 import 'package:myfront/presentation/pages/admin_pages/shop.dart';
+import 'package:myfront/presentation/pages/events/event_page.dart';
 
 
 class Home extends StatefulWidget {
@@ -16,31 +17,25 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  int index = 1; 
+  int index = 0; 
   final screen = [
+    EventPage(),
     Car(),
-    Profile(),
     Shop(),
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        actions: [IconButton(onPressed: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context) => Register())); 
-        }, icon: Icon(Icons.account_box_outlined, color: DataColor.iconColor, size: 30,))],
-        title: VText().PersianText('محله ما', 30),
-        centerTitle: true,
-        backgroundColor: Colors.deepPurple,
-      ),
+      extendBody: true,
       bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: Colors.white,
-        color: Colors.deepPurple,
+        backgroundColor: Colors.transparent,
+        color: DataColor.backgroundColor,
+        buttonBackgroundColor: DataColor.accentColor,
         index: index,
           items: <Widget>[
-            Icon(Icons.car_crash_sharp, color: DataColor.iconColor, size: 30,),
-            Icon(Icons.person, color: DataColor.iconColor,size: 30),
-            Icon(Icons.shop, color: DataColor.iconColor,size: 30),
+            Icon(Icons.event, color: DataColor.textColor, size: 30,),
+            Icon(Icons.car_repair, color: DataColor.textColor,size: 30),
+            Icon(Icons.shop, color: DataColor.textColor,size: 30),
         ],
         onTap: (index) => setState(() => this.index = index),
   ),
