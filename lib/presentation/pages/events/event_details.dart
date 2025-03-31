@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:myfront/core/data_color.dart';
 import 'package:myfront/core/vtext.dart';
