@@ -34,8 +34,8 @@ class _ShopPageState extends State<ShopPage> with SingleTickerProviderStateMixin
           indicatorColor: DataColor.accentColor,
           unselectedLabelColor: DataColor.textColor,         
           tabs: [
-            Tab(child: VText().PersianText('مشاهده کالا ها', screen_height * 0.025)), // تب اول
-            Tab(child: VText().PersianText('ساخت کالا ها', screen_height * 0.025)), // تب دوم
+            Tab(child: VText().PersianText('مشاهده لیست کالا', screen_height * 0.024)), // تب اول
+            Tab(child: VText().PersianText('ساخت کالا ها', screen_height * 0.024)), // تب دوم
             
           ],
         ),
@@ -44,8 +44,7 @@ class _ShopPageState extends State<ShopPage> with SingleTickerProviderStateMixin
         controller: _tabController,
         children: [
           ProductList(), // محتوای تب اول
-          CreateProducts(), // محتوای تب دوم
-              
+          CreateProducts(), // محتوای تب دوم   
         ],
       ),
     );

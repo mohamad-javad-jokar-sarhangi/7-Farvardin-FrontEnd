@@ -15,7 +15,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  int index = 3; 
+  int index = 2; 
   final screen = [
     EventPage(),
     CarPage(),
