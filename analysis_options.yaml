@@ -18,6 +18,7 @@ analyzer:
     unnecessary_brace_in_string_interps: ignore
     sort_child_properties_last: ignore
     unused_local_variable: ignore
+    unnecessary_string_interpolations: ignore
 include: package:flutter_lints/flutter.yaml
 
 linter:

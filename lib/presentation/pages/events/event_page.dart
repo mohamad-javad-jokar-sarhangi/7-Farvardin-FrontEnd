@@ -1,10 +1,8 @@
-// ignore_for_file: non_constant_identifier_names
-
 import 'package:flutter/material.dart';
 import 'package:myfront/core/data_color.dart';
-import 'package:myfront/core/vtext.dart';
 import 'package:myfront/presentation/pages/events/create_event.dart';
 import 'package:myfront/presentation/pages/events/list_event.dart';
+import 'package:myfront/presentation/widgets/vtext.dart';
 
 class EventPage extends StatefulWidget {
   const EventPage({Key? key}) : super(key: key);
@@ -33,7 +31,8 @@ class _EventPageState extends State<EventPage> with SingleTickerProviderStateMix
         bottom: TabBar(
           controller: _tabController,
           labelColor: DataColor.accentColor,
-          unselectedLabelColor: DataColor.textColor,
+          indicatorColor: DataColor.accentColor,
+          unselectedLabelColor: DataColor.textColor,         
           tabs: [
             Tab(child: VText().PersianText('مشاهده رویداد ها', screen_height * 0.025)), // تب اول
             Tab(child: VText().PersianText('ساخت رویداد ها', screen_height * 0.025)), // تب دوم

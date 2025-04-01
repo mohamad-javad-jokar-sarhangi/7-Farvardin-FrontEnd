@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:myfront/core/vtext.dart';
 import 'package:myfront/presentation/pages/events/event_details.dart';
 import 'package:myfront/presentation/widgets/row_of_event.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myfront/core/data_color.dart';
-import 'package:myfront/core/vtext.dart';
+import 'package:myfront/presentation/widgets/vtext.dart';
 
 class RowOfEvent extends StatefulWidget {
   final String eventTitle;

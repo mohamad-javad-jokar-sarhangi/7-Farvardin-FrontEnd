@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:myfront/core/data_color.dart';
 import 'package:myfront/presentation/widgets/vtext.dart';
 
-class CreateProducts extends StatefulWidget {
-  const CreateProducts({super.key});
+class ProductList extends StatefulWidget {
+  const ProductList({super.key});
 
   @override
-  State<CreateProducts> createState() => _CreateProductsState();
+  State<ProductList> createState() => _ProductListState();
 }
 
-class _CreateProductsState extends State<CreateProducts> {
+class _ProductListState extends State<ProductList> {
   @override
   Widget build(BuildContext context) {
     double screen_width = MediaQuery.of(context).size.width;
@@ -18,7 +18,7 @@ class _CreateProductsState extends State<CreateProducts> {
       color: DataColor.sidebarLinkBackgroundColor,
       width: double.infinity,
       height: double.infinity,
-      child: VText().PersianText('Creat Product', 60, color: DataColor.backgroundColor),
+      child: VText().PersianText('ProductList', 70, color: DataColor.backgroundColor),
     );
   }
 }

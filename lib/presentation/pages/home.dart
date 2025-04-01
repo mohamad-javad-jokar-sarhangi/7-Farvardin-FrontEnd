@@ -1,12 +1,10 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:myfront/core/data_color.dart';
-import 'package:myfront/core/vtext.dart';
-import 'package:myfront/presentation/pages/add_user_page.dart';
-import 'package:myfront/presentation/pages/admin_pages/car.dart';
-import 'package:myfront/presentation/pages/admin_pages/profile.dart';
-import 'package:myfront/presentation/pages/admin_pages/shop.dart';
 import 'package:myfront/presentation/pages/events/event_page.dart';
+import 'package:myfront/presentation/pages/register/profile.dart';
+import 'package:myfront/presentation/pages/shops/shop_page.dart';
+import 'package:myfront/presentation/pages/transfers/car_page.dart';
 
 
 class Home extends StatefulWidget {
@@ -17,11 +15,12 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  int index = 0; 
+  int index = 3; 
   final screen = [
     EventPage(),
-    Car(),
-    Shop(),
+    CarPage(),
+    ShopPage(),
+    Profile(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -36,6 +35,7 @@ class _HomeState extends State<Home> {
             Icon(Icons.event, color: DataColor.textColor, size: 30,),
             Icon(Icons.car_repair, color: DataColor.textColor,size: 30),
             Icon(Icons.shop, color: DataColor.textColor,size: 30),
+            Icon(Icons.account_circle, color: DataColor.textColor,size: 30),
         ],
         onTap: (index) => setState(() => this.index = index),
   ),
