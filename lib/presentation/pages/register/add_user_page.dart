@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:myfront/presentation/blocs/admin/user_bloc.dart';
-import 'package:myfront/presentation/blocs/admin/user_event.dart';
-import 'package:myfront/presentation/blocs/admin/user_state.dart';
+import 'package:myfront/presentation/blocs/users/user_bloc.dart';
+import 'package:myfront/presentation/blocs/users/user_event.dart';
+import 'package:myfront/presentation/blocs/users/user_state.dart';
 
 
 class Register extends StatelessWidget {
