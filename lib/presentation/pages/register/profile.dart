@@ -34,7 +34,7 @@ class _ProfileState extends State<Profile> {
           children: [
             // بخش بالایی با آواتار
             Container(
-              padding: EdgeInsets.only(bottom: 25),
+              padding: EdgeInsets.only(bottom: 15),
               width: double.infinity,
               decoration: BoxDecoration(
                 color: DataColor.backgroundColor,
@@ -45,15 +45,11 @@ class _ProfileState extends State<Profile> {
               ),
               child: Column(
                 children: [
-                  SizedBox(height: 10),
-                  
                   SizedBox(height: 15),
                   
                   // نام کاربر زیر آواتار
                   VText().PersianText(name, screenWidth * 0.07, color: Colors.white),
-                  
-                  SizedBox(height: 5),
-                  
+
                   // نوع کاربری زیر نام
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
@@ -66,9 +62,7 @@ class _ProfileState extends State<Profile> {
                 ],
               ),
             ),
-            
-            SizedBox(height: 30),
-            
+                        
             // بخش کارت‌های اطلاعات
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
@@ -116,6 +110,7 @@ class _ProfileState extends State<Profile> {
                 ],
               ),
             ),
+            SizedBox(height: 25),
           ],
         ),
       ),

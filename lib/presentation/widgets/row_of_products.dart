@@ -39,7 +39,7 @@ class RowOfProducts extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Container(
                 width: screen_width *0.38,
-                height: screen_width *0.38,
+                height: screen_height *0.45,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
                   color: DataColor.backgroundColor,
@@ -53,10 +53,6 @@ class RowOfProducts extends StatelessWidget {
                      size: screen_width * 0.2,
                      ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 15),
-                      child: VText().PersianText(' مشاهده و خرید ', screen_width * 0.05 ,),
-                    ),
                   ],
                 ),
               ),
@@ -66,7 +62,7 @@ class RowOfProducts extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Container(
                 width: screen_width *0.38,
-                height: screen_width *0.38,
+                height: screen_height *0.45,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
                   color: DataColor.backgroundColor,
