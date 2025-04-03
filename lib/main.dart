@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:myfront/presentation/blocs/users/user_bloc.dart';
 import 'package:myfront/presentation/pages/home.dart';
 import 'package:myfront/data/repositories/user_repository.dart';
+import 'package:myfront/presentation/pages/register/login_regisster_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: Home(),
+        home: LoginRegissterPage(),
       ),
     );
   }
