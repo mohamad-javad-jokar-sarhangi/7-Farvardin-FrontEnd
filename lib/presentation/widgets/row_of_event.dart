@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:myfront/core/data_color.dart';
+import 'package:myfront/presentation/widgets/gemini_button.dart';
 import 'package:myfront/presentation/widgets/vtext.dart';
 
 class RowOfEvent extends StatefulWidget {
   final String eventTitle;
   final VoidCallback onIconPressed;
-
   const RowOfEvent({
     super.key ,
     required this.eventTitle,
@@ -56,19 +56,24 @@ class _RowOfEventState extends State<RowOfEvent> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ElevatedButton(onPressed: widget.onIconPressed,
-                style: ElevatedButton.styleFrom(
-                        backgroundColor: DataColor.backgroundColor, // رنگ پس زمینه دکمه
-                        foregroundColor:  DataColor.accentColor,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(25),
-                        ),
-                        shadowColor: DataColor.backgroundColor,
-                        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                        elevation: 3,
-                      ),
-                child: VText().PersianText('برای مشاهده جزئیات کیلک کنید', screen_height*0.03),
-                ),
+                GeminiButton(
+                  text: 'مشاهده اطلاعیه',
+                  onPressed: widget.onIconPressed,
+                  width: 200,
+                  height: 55,
+                  radius: 25, 
+                  fontSize: 16,
+                  buttonColor: DataColor.backgroundColor,
+                  textColor: DataColor.textColor,
+                  iconData: Icons.info, // آیکون اضافه شد
+                  iconSize: 22, // اندازه آیکون کمی بزرگتر
+                  iconPadding: 12, // فاصله بیشتر
+                  iconPosition: IconPosition.leading, // موقعیت پیش‌فرض (ولی برای تاکید)
+                  elevation: 5, // سایه بیشتر
+                  shadowColor: Colors.purple.withOpacity(0.5), // رنگ سایه بنفش
+                  splashColor: Colors.purpleAccent.withOpacity(0.3),
+                  iconColor: DataColor.accentColor,
+                )
               ],
             ),
 

@@ -25,7 +25,7 @@ class _ShopPageState extends State<ShopPage> with SingleTickerProviderStateMixin
     double screen_height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
-        title: VText().PersianText('رویدادها', 30),
+        title: VText().PersianText('فروشگاه', 30),
         centerTitle: true,
         backgroundColor: DataColor.backgroundColor,
         bottom: TabBar(

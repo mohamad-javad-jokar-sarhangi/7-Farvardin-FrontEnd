@@ -2,6 +2,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:myfront/core/data_color.dart';
 import 'package:myfront/presentation/pages/events/event_page.dart';
+import 'package:myfront/presentation/pages/register/login_regisster_page.dart';
 import 'package:myfront/presentation/pages/register/profile.dart';
 import 'package:myfront/presentation/pages/shops/shop_page.dart';
 import 'package:myfront/presentation/pages/transfers/car_page.dart';
@@ -15,12 +16,12 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  int index = 2; 
+  int index = 3; 
   final screen = [
     EventPage(),
     CarPage(),
     ShopPage(),
-    Profile(),
+    LoginRegissterPage(),
   ];
   @override
   Widget build(BuildContext context) {

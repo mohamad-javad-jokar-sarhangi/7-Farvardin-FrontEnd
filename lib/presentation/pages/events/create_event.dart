@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:myfront/core/data_color.dart';
+import 'package:myfront/presentation/widgets/gemini_button.dart';
 import 'package:myfront/presentation/widgets/text_box.dart';
+import 'package:myfront/presentation/widgets/vtext.dart';
 
 class CreateEvent extends StatefulWidget {
   const CreateEvent({super.key});
@@ -48,6 +50,31 @@ class _CreateEventState extends State<CreateEvent> {
             fontSize: 20, 
             tc: box,
           ),
+
+          Padding(
+            padding: EdgeInsets.all(screen_height*0.05),
+            child: Center(
+              child: GeminiButton(
+                text: 'ثبت اطلاعیه',
+                onPressed: () { /* ... */ },
+                width: 200,
+                height: 55,
+                radius: 25, 
+                fontSize: 16,
+                buttonColor: DataColor.backgroundColor,
+                textColor: DataColor.textColor,
+                iconData: Icons.person_add_alt_1, // آیکون اضافه شد
+                iconSize: 22, // اندازه آیکون کمی بزرگتر
+                iconPadding: 12, // فاصله بیشتر
+                iconPosition: IconPosition.leading, // موقعیت پیش‌فرض (ولی برای تاکید)
+                elevation: 5, // سایه بیشتر
+                shadowColor: Colors.purple.withOpacity(0.5), // رنگ سایه بنفش
+                splashColor: Colors.purpleAccent.withOpacity(0.3),
+                iconColor: DataColor.accentColor,
+              ),
+            ),
+          ),
+          SizedBox(height: screen_height * 0.3,),
         ],
       ),
     );
