@@ -38,7 +38,7 @@ class _LoginRegissterPageState extends State<LoginRegissterPage> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 GeminiTextBox(
-                  name: 'نام کاربری',
+                  name: 'نام کاربر',
                   width: screen_width * 0.6, // شاید نیاز به عرض بیشتری باشد
                   height: screen_height * 0.07,
                   radius: 15,
@@ -107,10 +107,10 @@ class _LoginRegissterPageState extends State<LoginRegissterPage> {
           GeminiButton(
             text: 'ثبت نام',
             onPressed: () { /* ... */ },
-            width: 200,
-            height: 55,
+            width: screen_width * 0.7,
+            height: screen_height * 0.1,
             radius: 25, 
-            fontSize: 16,
+            fontSize: screen_width * 0.07,
             buttonColor: DataColor.backgroundColor,
             textColor: DataColor.textColor,
             iconData: Icons.person_add_alt_1, // آیکون اضافه شد

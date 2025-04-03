@@ -4,6 +4,7 @@ import 'package:myfront/core/data_color.dart';
 import 'package:myfront/presentation/pages/events/event_page.dart';
 import 'package:myfront/presentation/pages/register/login_regisster_page.dart';
 import 'package:myfront/presentation/pages/register/profile.dart';
+import 'package:myfront/presentation/pages/register/waiting_page.dart';
 import 'package:myfront/presentation/pages/shops/shop_page.dart';
 import 'package:myfront/presentation/pages/transfers/car_page.dart';
 
@@ -21,7 +22,7 @@ class _HomeState extends State<Home> {
     EventPage(),
     CarPage(),
     ShopPage(),
-    LoginRegissterPage(),
+    WaitingPage(),
   ];
   @override
   Widget build(BuildContext context) {
