@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:myfront/data/repositories/user_repository.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
 import 'user_event.dart';
 import 'user_state.dart';
 
@@ -8,9 +8,12 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   final UserRepository userRepository;
 
   UserBloc({required this.userRepository}) : super(UserInitial()) {
+    // API
     on<AddUser>(_onAddUser);
+    on<SendPhoneNumberEvent>(_onCheckUser);
   }
 
+  // initial register user by api 
   Future<void> _onAddUser(AddUser event, Emitter<UserState> emit) async {
     emit(UserLoading());
     try {
@@ -18,6 +21,29 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       emit(UserAdded());
     } catch (error) {
       emit(UserError(error: error.toString()));
+    }
+  }
+
+  // for api check registeration
+  Future<void> _onCheckUser(SendPhoneNumberEvent event, Emitter<UserState> emit) async {
+    emit(SendPhoneNumberLoading());
+    try {
+      // دریافت اطلاعات کاربر از API
+      final userData = await userRepository.sendPhoneAndGetCredentials(event.phoneNumber);
+      
+      // ذخیره اطلاعات دریافتی در SharedPreferences
+      final prefs = await SharedPreferences.getInstance();
+      
+      // ذخیره تمام اطلاعات دریافتی
+      await prefs.setString('user_name', userData['name'] ?? '');
+      await prefs.setString('phone', userData['phone'] ?? '');
+      await prefs.setString('role', userData['role'] ?? '');
+      await prefs.setString('username', userData['username'] ?? '');
+      await prefs.setString('password', userData['password'] ?? '');
+      
+      emit(SendPhoneNumberSuccessful());
+    } catch (error) {
+      emit(SendPhoneNumberFailure(error: error.toString()));
     }
   }
 }

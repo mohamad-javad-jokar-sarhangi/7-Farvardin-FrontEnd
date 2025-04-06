@@ -22,7 +22,7 @@ class _HomeState extends State<Home> {
     EventPage(),
     CarPage(),
     ShopPage(),
-    WaitingPage(),
+    Profile(),
   ];
   @override
   Widget build(BuildContext context) {

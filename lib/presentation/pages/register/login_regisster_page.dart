@@ -8,6 +8,7 @@ import 'package:myfront/presentation/pages/register/waiting_page.dart';
 import 'package:myfront/presentation/widgets/gemini_button.dart';
 import 'package:myfront/presentation/widgets/gemini_dropdown.dart';
 import 'package:myfront/presentation/widgets/gemini_text_box.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginRegissterPage extends StatefulWidget {
   const LoginRegissterPage({super.key});
@@ -23,6 +24,8 @@ class _LoginRegissterPageState extends State<LoginRegissterPage> {
   String? _selectedRole;
   List<String> role = ["عادی", "راننده", "فروشنده", "شورا", "دهیار"];
 
+  // حذف تابع saveData اضافی - از تابع در دکمه ثبت نام استفاده می‌کنیم
+
   @override
   Widget build(BuildContext context) {
     double screen_width = MediaQuery.of(context).size.width;
@@ -31,36 +34,13 @@ class _LoginRegissterPageState extends State<LoginRegissterPage> {
     return Scaffold(
       body: BlocListener<UserBloc, UserState>(
         listener: (context, state) {
-          if (state is UserLoading) {
-            // نمایش دیالوگ بارگذاری
-            showDialog(
-              context: context,
-              barrierDismissible: false,
-              builder: (BuildContext context) {
-                return const AlertDialog(
-                  content: Row(
-                    children: [
-                      CircularProgressIndicator(),
-                      SizedBox(width: 20),
-                      Text("در حال ثبت نام..."),
-                    ],
-                  ),
-                );
-              },
-            );
-          } else if (state is UserAdded) {
-            // حذف دیالوگ بارگذاری
-            Navigator.of(context).pop();
-
+          if (state is UserAdded) {
             // در صورت موفقیت، رفتن به صفحه انتظار تأیید
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(builder: (context) => const WaitingPage()),
             );
           } else if (state is UserError) {
-            // حذف دیالوگ بارگذاری
-            Navigator.of(context).pop();
-
             // نمایش پیام خطا
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text('خطا در ثبت نام: ${state.error}')),
@@ -148,18 +128,27 @@ class _LoginRegissterPageState extends State<LoginRegissterPage> {
               SizedBox(height: screen_height * 0.035),
               GeminiButton(
                 text: 'ثبت نام',
-                onPressed: () {
+                onPressed: () async {
                   if (user_name_controller.text.isNotEmpty &&
                       user_phone_controller.text.isNotEmpty &&
                       _selectedRole != null) {
+                    
+                    // ذخیره شماره تلفن در SharedPreferences
+                    final prefs = await SharedPreferences.getInstance();
+                    await prefs.setString('phone_number', user_phone_controller.text);
+                    
+                    // همچنین نام و نقش کاربر را هم ذخیره کنیم که شاید بعداً نیاز شود
+                    // await prefs.setString('user_name', user_name_controller.text);
+                    // await prefs.setString('user_role', _selectedRole!);
+                    
                     // افزودن کاربر به کمک Bloc
                     context.read<UserBloc>().add(
-                          AddUser(
-                            user_name_controller.text,
-                            user_phone_controller.text,
-                            _selectedRole!,
-                          ),
-                        );
+                      AddUser(
+                        user_name_controller.text,
+                        user_phone_controller.text,
+                        _selectedRole!,
+                      ),
+                    );
                   } else {
                     // پیام خطا در صورت عدم پر شدن فیلدها
                     showDialog(
