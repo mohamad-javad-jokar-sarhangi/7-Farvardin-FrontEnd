@@ -4,10 +4,12 @@ import 'package:myfront/presentation/blocs/users/user_bloc.dart';
 import 'package:myfront/presentation/blocs/users/user_event.dart';
 import 'package:myfront/presentation/blocs/users/user_state.dart';
 import 'package:myfront/core/data_color.dart';
+import 'package:myfront/presentation/pages/register/login.dart';
 import 'package:myfront/presentation/pages/register/waiting_page.dart';
 import 'package:myfront/presentation/widgets/gemini_button.dart';
 import 'package:myfront/presentation/widgets/gemini_dropdown.dart';
 import 'package:myfront/presentation/widgets/gemini_text_box.dart';
+import 'package:myfront/presentation/widgets/gemini_text_button.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginRegissterPage extends StatefulWidget {
@@ -65,7 +67,7 @@ class _LoginRegissterPageState extends State<LoginRegissterPage> {
                   children: [
                     GeminiTextBox(
                       name: 'نام کاربر',
-                      width: screen_width * 0.6,
+                      width: screen_width * 0.65,
                       height: screen_height * 0.07,
                       radius: 15,
                       fontSize: 18,
@@ -187,6 +189,18 @@ class _LoginRegissterPageState extends State<LoginRegissterPage> {
                 iconColor: DataColor.accentColor,
               ),
               SizedBox(height: screen_height * 0.035),
+              GeminiTextButton(
+                clickableText: 'اینجا کلیک کن',
+                text: 'حساب کاربری داری؟',
+                color1: DataColor.backgroundColor,
+                color2: DataColor.iconColor,
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Login()),
+                  );
+                },
+              )
             ],
           ),
         ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myfront/core/data_color.dart';
 import 'package:myfront/presentation/widgets/vtext.dart';
 
 class GeminiTextBox extends StatefulWidget {
@@ -28,20 +29,20 @@ class GeminiTextBox extends StatefulWidget {
     required this.name,
     required this.width,
     required this.height,
-    required this.radius,
-    required this.fontSize,
-    required this.containerColor,
-    required this.cursorColor,
-    required this.textColor,
-    required this.labelColor,
+    this.radius = 24,
+    this.fontSize = 16,
+    this.containerColor = DataColor.backgroundColor,
+    this.cursorColor = DataColor.accentColor,
+    this.textColor = DataColor.textColor,
+    this.labelColor = DataColor.backgroundColor,
     required this.tc,
     // مقادیر پیش‌فرض برای قابلیت‌های جدید
     this.enableFocusEffects = true, // به طور پیش‌فرض فعال
     this.focusBorderColor = Colors.blueAccent, // یه رنگ پیش‌فرض جذاب
     this.focusBorderWidth = 2.0,
     this.focusIcon, // به طور پیش‌فرض آیکونی نیست
-    this.focusIconColor, // رنگ پیش‌فرض بعداً تنظیم می‌شود
-    this.focusIconSize, // اندازه پیش‌فرض بعداً تنظیم می‌شود
+    this.focusIconColor = DataColor.accentColor, // رنگ پیش‌فرض بعداً تنظیم می‌شود
+    this.focusIconSize = 20, // اندازه پیش‌فرض بعداً تنظیم می‌شود
     this.labelSpacing = 8.0, // فاصله پیش‌فرض بین لیبل و فیلد
   });
 

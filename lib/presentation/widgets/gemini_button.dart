@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myfront/core/data_color.dart';
 import 'package:myfront/presentation/widgets/vtext.dart';
 // import 'package:myfront/presentation/widgets/vtext.dart';
 
@@ -52,25 +53,28 @@ class GeminiButton extends StatelessWidget {
     required this.onPressed,
     required this.width,
     required this.height,
-    required this.radius,
-    required this.fontSize,
-    required this.buttonColor,
-    required this.textColor,
-    this.splashColor = Colors.white38,
-    this.disabledButtonColor,
-    this.disabledTextColor,
+    this.radius = 25,
+    this.fontSize = 16,
+    this.buttonColor = DataColor.backgroundColor,
+    this.textColor = DataColor.textColor,
+    this.splashColor = DataColor.accentShadowColor,
+    this.disabledButtonColor = DataColor.accentColor,
+    this.disabledTextColor = DataColor.sidebarLinkBackgroundColor,
     this.elevation = 2.0,
-    this.shadowColor,
+    this.shadowColor = DataColor.sidebarLinkBackgroundColor,
     this.iconData,
     this.iconSize,
     this.iconPadding = 8.0,
     this.iconPosition = IconPosition.leading,
-    this.iconColor, // **جدید**
+    this.iconColor = DataColor.accentColor, // **جدید**
     this.disabledIconColor, // **جدید**
   });
 
   @override
   Widget build(BuildContext context) {
+    double screen_width = MediaQuery.of(context).size.width;
+    double screen_height = MediaQuery.of(context).size.height;
+    
     // تعیین اینکه دکمه فعال است یا نه
     final bool isEnabled = onPressed != null;
 

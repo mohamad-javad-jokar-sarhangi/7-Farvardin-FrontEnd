@@ -75,6 +75,9 @@ flutter:
     - json assets/json (6).json
     - json assets/json (7).json
     - json assets/json (8).json
+    - img/white.jpg
+    - img/gradint.jpg
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

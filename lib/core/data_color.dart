@@ -11,6 +11,5 @@ class DataColor {
   static const Color tableRowHoverColor = Color(0x66836FFF); // rgba(131, 111, 255, 0.4) - پس زمینه هنگام هاور روی ردیف های جدول
   static const Color accentShadowColor = Color(0x8015F5BA); // rgba(21, 245, 186, 0.5) - سایه اکسنت
 
-
 }
 
