@@ -20,3 +20,15 @@ class SendPhoneNumberFailure extends UserState {
 }
 
 class SendPhoneNumberSuccessful extends UserState {}
+
+
+// api login by usernam password
+class LoginLoading extends UserState {}
+
+class LoginSuccessful extends UserState {}
+
+class LoginFailed extends UserState {
+  final String error;
+
+  LoginFailed({required this.error});
+}

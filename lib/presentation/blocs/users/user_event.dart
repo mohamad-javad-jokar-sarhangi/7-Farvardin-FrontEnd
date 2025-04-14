@@ -15,3 +15,11 @@ class SendPhoneNumberEvent extends UserEvent {
 
   SendPhoneNumberEvent(this.phoneNumber);
 }
+
+// api login by usernam password
+class LoginUserEvent extends UserEvent {
+  final String username;
+  final String password;
+
+  LoginUserEvent(this.username, this.password);
+}

@@ -57,4 +57,28 @@ class UserRepository {
     throw Exception('Error occurred while contacting API: $e');
   }
 }
+
+
+Future<bool> loginUser(String username, String password) async {
+  try {
+    final response = await http.post(
+      Uri.parse('http://127.0.0.1:8090/users/api/login/'), // URL مربوط به ورود
+      headers: {"Content-Type": "application/json"},
+      body: jsonEncode({
+        "username": username,
+        "password": password,
+      }),
+    );
+
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body);
+      return data['exists']; // بررسی وضعیت ورود
+    } else {
+      return false; // در صورت خطا، ورود ناموفق
+    }
+  } catch (e) {
+    throw Exception('Failed to login: $e');
+  }
+}
+
 }

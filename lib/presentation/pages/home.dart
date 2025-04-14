@@ -17,12 +17,11 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  int index = 3; 
+  int index = 1; 
   final screen = [
     EventPage(),
     CarPage(),
     ShopPage(),
-    Profile(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -37,7 +36,6 @@ class _HomeState extends State<Home> {
             Icon(Icons.event, color: DataColor.textColor, size: 30,),
             Icon(Icons.car_repair, color: DataColor.textColor,size: 30),
             Icon(Icons.shop, color: DataColor.textColor,size: 30),
-            Icon(Icons.account_circle, color: DataColor.textColor,size: 30),
         ],
         onTap: (index) => setState(() => this.index = index),
   ),

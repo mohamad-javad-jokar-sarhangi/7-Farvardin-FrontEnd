@@ -6,6 +6,7 @@ import 'package:myfront/presentation/blocs/users/user_bloc.dart';
 import 'package:myfront/presentation/blocs/users/user_event.dart';
 import 'package:myfront/presentation/blocs/users/user_state.dart';
 import 'package:myfront/presentation/pages/home.dart';
+import 'package:myfront/presentation/pages/register/login.dart';
 import 'package:myfront/presentation/widgets/gemini_button.dart';
 import 'package:myfront/presentation/widgets/vtext.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -45,7 +46,7 @@ class _WaitingPageState extends State<WaitingPage> {
             // در صورت موفقیت، انتقال به صفحه اصلی
             Navigator.pushReplacement(
               context,
-              MaterialPageRoute(builder: (context) => const Home()),
+              MaterialPageRoute(builder: (context) => const Login(fromWaitingPage: true)),
             );
           } else if (state is SendPhoneNumberFailure) {
             // نمایش پیام خطا
@@ -55,7 +56,7 @@ class _WaitingPageState extends State<WaitingPage> {
           }
         },
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(
               width: screen_width * 0.8,

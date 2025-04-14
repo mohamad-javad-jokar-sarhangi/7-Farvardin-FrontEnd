@@ -11,6 +11,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     // API
     on<AddUser>(_onAddUser);
     on<SendPhoneNumberEvent>(_onCheckUser);
+    on<LoginUserEvent>(_onLoginUser);
   }
 
   // initial register user by api 
@@ -46,4 +47,24 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       emit(SendPhoneNumberFailure(error: error.toString()));
     }
   }
+
+
+
+
+// api login by usernam password
+  Future<void> _onLoginUser(LoginUserEvent event, Emitter<UserState> emit) async {
+  emit(LoginLoading());
+  try {
+    // فراخوانی متد API در Repository
+    final isLoginSuccessful = await userRepository.loginUser(event.username, event.password);
+    if (isLoginSuccessful) {
+      emit(LoginSuccessful());
+    } else {
+      emit(LoginFailed(error: 'نام کاربری یا رمز عبور اشتباه است.'));
+    }
+  } catch (error) {
+    emit(LoginFailed(error: error.toString()));
+  }
+}
+
 }
