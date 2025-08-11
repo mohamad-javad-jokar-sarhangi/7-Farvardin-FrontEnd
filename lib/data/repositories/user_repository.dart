@@ -3,7 +3,7 @@ import 'dart:convert';
 
 class UserRepository {
   // ثبت نام کاربر جدید
-  Future<void> addUser(String name, String phone ,String role) async {
+  Future<void> addUser(String name, String phone ,String role,String location) async {
     final response = await http.post(
       Uri.parse('http://127.0.0.1:8090/users/api_register/'), // آدرس صحیح برای ثبت کاربران
       headers: {"Content-Type": "application/json"},
@@ -11,6 +11,7 @@ class UserRepository {
         "name": name,
         "phone": phone,
         "role": role,
+        'location' : location,
       }),
     );
     if (response.statusCode != 201) { // بررسی وضعیت موفقیت ثبت نام
@@ -32,11 +33,13 @@ class UserRepository {
     // بررسی وضعیت پاسخ
     if (response.statusCode == 200) {
       // پاسخ JSON دریافت‌شده را به Map تبدیل کنید
-      final Map<String, dynamic> data = jsonDecode(response.body);
+      final decoded = utf8.decode(response.bodyBytes);
+      final Map<String, dynamic> data = jsonDecode(decoded);
       // استخراج نام کاربری و رمز عبور از پاسخ API
       final String name = data['name'];
       final String phone = data['phone'];
       final String role = data['role'];
+      final String location = data['location'];
       final String username = data['username'];
       final String password = data['password'];
 
@@ -45,6 +48,7 @@ class UserRepository {
         "name": name,
         "phone": phone,
         "role": role,
+        'location' : location,
         "username": username,
         "password": password,
       };

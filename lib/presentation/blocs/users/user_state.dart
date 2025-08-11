@@ -19,7 +19,24 @@ class SendPhoneNumberFailure extends UserState {
   SendPhoneNumberFailure({required this.error});
 }
 
-class SendPhoneNumberSuccessful extends UserState {}
+class SendPhoneNumberSuccessful extends UserState {
+  final String name;
+  final String phone;
+  final String role;
+  final String location;
+  final String username;
+  final String password;
+
+  SendPhoneNumberSuccessful({
+    required this.name,
+    required this.phone,
+    required this.role,
+    required this.location,
+    required this.username,
+    required this.password,
+  });
+}
+
 
 
 // api login by usernam password

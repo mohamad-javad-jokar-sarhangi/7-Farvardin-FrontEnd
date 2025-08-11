@@ -2,10 +2,12 @@ class User {
   final String name; // نام کاربر
   final String phone; // شماره تلفن کاربر
   final String role;
+  final String location;
   User({
     required this.name,
     required this.phone,
     required this.role,
+    required this.location,
   });
 
   // متدی برای تبدیل JSON دریافتی از API به مدل User
@@ -14,6 +16,7 @@ class User {
       name: json['name'],
       phone: json['phone'],
       role: json['role'],
+      location: json['location'],
     );
   }
 
@@ -23,6 +26,7 @@ class User {
       'name': name,
       'phone': phone,
       'role' : role,
+      'location' : location,
     };
   }
 }

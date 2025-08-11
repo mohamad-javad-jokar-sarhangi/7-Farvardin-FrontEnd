@@ -24,7 +24,9 @@ class _LoginRegissterPageState extends State<LoginRegissterPage> {
   TextEditingController user_phone_controller = TextEditingController();
 
   String? _selectedRole;
+  String? _selectedlocation;
   List<String> role = ["عادی", "راننده", "فروشنده", "شورا", "دهیار"];
+   List<String> location = ["تجنک","دارکلا","آهن کتی","قجر مرحله"];
 
   // حذف تابع saveData اضافی - از تابع در دکمه ثبت نام استفاده می‌کنیم
 
@@ -127,6 +129,28 @@ class _LoginRegissterPageState extends State<LoginRegissterPage> {
                 iconColor: Colors.purpleAccent,
                 hintText: "لطفا نقش خود را انتخاب کنید...",
               ),
+              SizedBox(height: screen_height * 0.02),
+              GeminiDropdown(
+                label: "محله خودت",
+                items: location,
+                dropdownColor: DataColor.tableRowEvenColor,
+                selectedValue: _selectedlocation,
+                onChanged: (String? newValue) {
+                  setState(() {
+                    _selectedlocation = newValue;
+                  });
+                },
+                width: screen_width * 0.7,
+                height: screen_height * 0.1,
+                fontSize: 16,
+                radius: 12,
+                selectedBorderColor: Colors.purple,
+                unselectedBorderColor: Colors.grey.shade400,
+                labelColor: Colors.grey.shade600,
+                iconData: Icons.person_outline,
+                iconColor: Colors.purpleAccent,
+                hintText: "لطفا محله خود را انتخاب کنید...",
+              ),
               SizedBox(height: screen_height * 0.035),
               GeminiButton(
                 text: 'ثبت نام',
@@ -149,6 +173,7 @@ class _LoginRegissterPageState extends State<LoginRegissterPage> {
                         user_name_controller.text,
                         user_phone_controller.text,
                         _selectedRole!,
+                        _selectedlocation!,
                       ),
                     );
                   } else {

@@ -5,8 +5,9 @@ class AddUser extends UserEvent { // رویدادی برای افزودن کار
   final String name;
   final String phone;
   final String role;
+  final String location;
 
-  AddUser(this.name, this.phone, this.role);
+  AddUser(this.name, this.phone, this.role, this.location);
 }
 
 // for api check registeration

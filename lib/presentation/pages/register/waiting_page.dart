@@ -5,7 +5,6 @@ import 'package:myfront/core/data_color.dart';
 import 'package:myfront/presentation/blocs/users/user_bloc.dart';
 import 'package:myfront/presentation/blocs/users/user_event.dart';
 import 'package:myfront/presentation/blocs/users/user_state.dart';
-import 'package:myfront/presentation/pages/home.dart';
 import 'package:myfront/presentation/pages/register/login.dart';
 import 'package:myfront/presentation/widgets/gemini_button.dart';
 import 'package:myfront/presentation/widgets/vtext.dart';
@@ -24,7 +23,6 @@ class _WaitingPageState extends State<WaitingPage> {
   @override
   void initState() {
     super.initState();
-    // خواندن شماره تلفن از SharedPreferences در زمان شروع صفحه
     _loadPhoneNumber();
   }
 
@@ -37,19 +35,27 @@ class _WaitingPageState extends State<WaitingPage> {
 
   @override
   Widget build(BuildContext context) {
-    double screen_width = MediaQuery.of(context).size.width;
-    double screen_height = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: BlocListener<UserBloc, UserState>(
-        listener: (context, state) {
+        listener: (context, state) async {
           if (state is SendPhoneNumberSuccessful) {
-            // در صورت موفقیت، انتقال به صفحه اصلی
+            // ذخیره اطلاعات قبل از رفتن به صفحه بعدی
+            final prefs = await SharedPreferences.getInstance();
+            await prefs.setString('user_name', state.name);
+            await prefs.setString('phone', state.phone);
+            await prefs.setString('role', state.role);
+            await prefs.setString('location', state.location);
+            await prefs.setString('username', state.username);
+            await prefs.setString('password', state.password);
+
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(builder: (context) => const Login(fromWaitingPage: true)),
             );
           } else if (state is SendPhoneNumberFailure) {
-            // نمایش پیام خطا
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text('خطا در بررسی وضعیت: ${state.error}')),
             );
@@ -59,44 +65,44 @@ class _WaitingPageState extends State<WaitingPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(
-              width: screen_width * 0.8,
-              height: screen_width * 0.8,
-              child: Lottie.asset('json assets/json (1).json')
+              width: screenWidth * 0.8,
+              height: screenWidth * 0.8,
+              child: Lottie.asset('json assets/json (1).json'),
             ),
-            VText().PersianText(
-              'برای برسی وضعیت ثبت نام',
-              screen_width * 0.07,
-              color: DataColor.backgroundColor
+            Center(
+              child: VText().PersianText(
+                'برای بررسی وضعیت ثبت‌نام',
+                screenWidth * 0.07,
+                color: DataColor.backgroundColor,
+              ),
             ),
-            SizedBox(height: screen_height * 0.04),
-            // نمایش شماره تلفن ذخیره شده
-            phone.isNotEmpty 
-              ? VText().PersianText(
-                  'شماره تلفن: $phone',
-                  screen_width * 0.04,
-                  color: Colors.black54
-                )
-              : Container(),
-            SizedBox(height: screen_height * 0.02),
+            SizedBox(height: screenHeight * 0.04),
+            if (phone.isNotEmpty)
+              VText().PersianText(
+                'شماره تلفن: $phone',
+                screenWidth * 0.04,
+                color: Colors.black54,
+              ),
+            SizedBox(height: screenHeight * 0.02),
             GeminiButton(
-              text: ' رو دکمه کلید کنید ',
+              text: 'رو دکمه کلیک کنید',
               onPressed: () {
                 if (phone.isEmpty) {
-                  // اگر شماره تلفن خالی باشد، نمایش پیام خطا
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(
-                      content: Text('خطا: شماره تلفنی یافت نشد. لطفا دوباره ثبت نام کنید.'),
+                      content: Text(
+                        'خطا: شماره تلفنی یافت نشد. لطفا دوباره ثبت‌نام کنید.',
+                      ),
                     ),
                   );
                 } else {
-                  // ارسال شماره تلفن به API از طریق Bloc
                   context.read<UserBloc>().add(SendPhoneNumberEvent(phone));
                 }
               },
-              width: screen_width * 0.7,
-              height: screen_height * 0.07,
+              width: screenWidth * 0.7,
+              height: screenHeight * 0.07,
               radius: 25,
-              fontSize: screen_width * 0.07,
+              fontSize: screenWidth * 0.07,
               buttonColor: DataColor.backgroundColor,
               textColor: DataColor.textColor,
               iconData: Icons.ads_click,

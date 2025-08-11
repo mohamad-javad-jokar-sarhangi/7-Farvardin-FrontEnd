@@ -36,28 +36,34 @@ class _LoginState extends State<Login> {
   }
 
   @override
-  void initState() {
-    super.initState();
-    if (widget.fromWaitingPage) {
-      _loadUserData();
-      // نمایش QuickAlert فقط زمانی که از صفحه WaitingPage وارد شده باشیم
+void initState() {
+  super.initState();
+  if (widget.fromWaitingPage) {
+    _loadUserData().then((_) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         QuickAlert.show(
           context: context,
           type: QuickAlertType.warning,
           title: 'از اینجا اسکرین شات بگیر',
-          text: 'نام کاربری: ${username} \nرمز عبور: ${password}',
+          widget: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'نام کاربری: $username\nرمز ورود: $password',
+                textAlign: TextAlign.right,
+                textDirection: TextDirection.rtl,
+                style: TextStyle(fontFamily: 'Vazir', fontSize: 16),
+              ),
+            ],
+          ),
           confirmBtnText: 'اگه گرفتی بزن بریم',
-          showCancelBtn: false,
           confirmBtnColor: Colors.green,
-          textAlignment: TextAlign.right,
-          titleAlignment: TextAlign.right,
         );
       });
-
-
-    }
+    });
   }
+}
+
 
   @override
   Widget build(BuildContext context) {

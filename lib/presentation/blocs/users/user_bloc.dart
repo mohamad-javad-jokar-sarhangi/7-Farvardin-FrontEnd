@@ -18,7 +18,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   Future<void> _onAddUser(AddUser event, Emitter<UserState> emit) async {
     emit(UserLoading());
     try {
-      await userRepository.addUser(event.name, event.phone, event.role);
+      await userRepository.addUser(event.name, event.phone, event.role , event.location);
       emit(UserAdded());
     } catch (error) {
       emit(UserError(error: error.toString()));
@@ -39,10 +39,18 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       await prefs.setString('user_name', userData['name'] ?? '');
       await prefs.setString('phone', userData['phone'] ?? '');
       await prefs.setString('role', userData['role'] ?? '');
+      await prefs.setString('location', userData['location'] ?? '');
       await prefs.setString('username', userData['username'] ?? '');
       await prefs.setString('password', userData['password'] ?? '');
       
-      emit(SendPhoneNumberSuccessful());
+      emit(SendPhoneNumberSuccessful(
+        name: userData['name'] ?? '',
+        phone: userData['phone'] ?? '',
+        role: userData['role'] ?? '',
+        location: userData['location'] ?? '',
+        username: userData['username'] ?? '',
+        password: userData['password'] ?? '',
+      ));
     } catch (error) {
       emit(SendPhoneNumberFailure(error: error.toString()));
     }
