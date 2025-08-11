@@ -1,0 +1,19 @@
+# اطمینان از اینکه همه فایل‌ها با LF ذخیره می‌شن
+* text=auto eol=lf
+
+# فریم‌ورک Flutter و Dart
+*.dart text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.gradle text eol=lf
+*.sh text eol=lf
+
+# فایل‌های پایتون یا اسکریپت‌ها
+*.py text eol=lf
+
+# پلتفرم‌ها
+*.cpp text eol=lf
+*.cc text eol=lf
+*.c text eol=lf
+*.h text eol=lf
+*.cmake text eol=lf
