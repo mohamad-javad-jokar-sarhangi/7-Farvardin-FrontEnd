@@ -4,7 +4,8 @@ import 'package:myfront/core/data_color.dart';
 import 'package:myfront/presentation/pages/register/login_regisster_page.dart';
 import 'package:myfront/presentation/pages/register/profile.dart';
 import 'package:myfront/presentation/pages/register/waiting_page.dart';
-import 'package:myfront/presentation/pages/transfers/car_page.dart';
+import 'package:myfront/presentation/pages/transfers/driver_requests_screen.dart';
+import 'package:myfront/presentation/pages/transfers/passenger_request_screen.dart';
 
 
 class Home extends StatefulWidget {
@@ -17,9 +18,9 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int index = 1; 
   final screen = [
-    CarPage(),
-    Profile()
-   
+    DriverRequestsScreen(),
+    Profile(),
+    PassengerRequestScreen(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -33,6 +34,7 @@ class _HomeState extends State<Home> {
           items: <Widget>[
             Icon(Icons.car_repair, color: DataColor.textColor,size: 30),
             Icon(Icons.person, color: DataColor.textColor,size: 30),
+            Icon(Icons.car_repair_sharp, color: DataColor.textColor,size: 30),
         ],
         onTap: (index) => setState(() => this.index = index),
   ),

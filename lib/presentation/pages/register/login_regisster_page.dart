@@ -25,7 +25,7 @@ class _LoginRegissterPageState extends State<LoginRegissterPage> {
 
   String? _selectedRole;
   String? _selectedlocation;
-  List<String> role = ["عادی", "راننده", "فروشنده", "شورا", "دهیار"];
+  List<String> role = [ "راننده", "مسافر",];
    List<String> location = ["تجنک","دارکلا","آهن کتی","قجر مرحله"];
 
   // حذف تابع saveData اضافی - از تابع در دکمه ثبت نام استفاده می‌کنیم
